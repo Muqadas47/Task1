@@ -46,7 +46,7 @@ namespace Task.Controllers
             return View(user);
         }
 
-        // GET: Admin/EditUser/5
+        
         public ActionResult EditUser(int? id)
         {
             if (id == null)
@@ -101,7 +101,7 @@ namespace Task.Controllers
             return View(user);
         }
 
-        // POST: Admin/DeleteUser/5
+        
         [HttpPost, ActionName("DeleteUser")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

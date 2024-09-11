@@ -266,6 +266,7 @@
     <Content Include="Views\Admin\index.cshtml" />
     <Content Include="Views\Admin\ViewAllTasks.cshtml" />
     <Content Include="Views\Admin\CreateTask.cshtml" />
+    <Content Include="Views\setting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
