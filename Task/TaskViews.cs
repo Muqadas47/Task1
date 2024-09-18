@@ -20,5 +20,7 @@ namespace Task
         public string Status { get; set; }
         public string AssignedTo { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
+        public string Priority { get; set; }
+        public Nullable<System.DateTime> CreatedAt { get; set; }
     }
 }

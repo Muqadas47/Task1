@@ -34,6 +34,13 @@
                             @Html.ValidationMessageFor(model => model.DueDate, "", new { @class = "text-danger" })
                         </div>
 
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Priority, new { @class = "form-label" }) <!-- Priority Dropdown -->
+                            @Html.DropDownListFor(model => model.Priority, new SelectList(new[] { "High", "Medium", "Low", "Urgent" }), "Select Priority", new { @class = "form-control form-control-lg" })
+                            @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+                        </div>
+
                         <div class="form-group">
                             @Html.Label("AssignedTo", new { @class = "form-label" })
                             @Html.DropDownList("AssignedTo", (SelectList)ViewBag.Users, "Select User", new { @class = "form-control form-control-lg" })

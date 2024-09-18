@@ -5,6 +5,41 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TaskModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssignTasks">
+          <Key>
+            <PropertyRef Name="AssignTaskID" />
+          </Key>
+          <Property Name="AssignTaskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Deadline" Type="date" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="100" />
+          <Property Name="AssignedUserID" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SystemSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnableNotifications" Type="bit" />
+          <Property Name="DefaultTaskPriority" Type="nvarchar(max)" />
+          <Property Name="TaskCategories" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TaskActivities ">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ActivityDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="TaskStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProgressPercentage" Type="int" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
         <EntityType Name="TaskViews">
           <Key>
             <PropertyRef Name="TaskID" />
@@ -15,21 +50,26 @@
           <Property Name="Status" Type="nvarchar(max)" />
           <Property Name="AssignedTo" Type="nvarchar(max)" />
           <Property Name="DueDate" Type="datetime" />
+          <Property Name="Priority" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PasswordHash" Type="varchar" MaxLength="200" />
-          <Property Name="Role" Type="char" MaxLength="1" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PasswordHash" Type="varchar(max)" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
           <Property Name="SignupDate" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="IsBlocked" Type="bit" />
           <Property Name="BlockedDate" Type="datetime" />
         </EntityType>
         <EntityContainer Name="TaskModelStoreContainer">
+          <EntitySet Name="AssignTasks" EntityType="Self.AssignTasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemSettings" EntityType="Self.SystemSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskActivities " EntityType="Self.TaskActivities " Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaskViews" EntityType="Self.TaskViews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -39,20 +79,32 @@
       <Schema Namespace="TaskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TaskEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="TaskModel.Users" />
+          <EntitySet Name="SystemSettings" EntityType="TaskModel.SystemSettings" />
           <EntitySet Name="TaskViews" EntityType="TaskModel.TaskViews" />
+          <EntitySet Name="AssignTasks" EntityType="TaskModel.AssignTasks" />
+          <EntitySet Name="TaskActivities_" EntityType="TaskModel.TaskActivities_" />
         </EntityContainer>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordHash" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Role" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SignupDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="IsBlocked" Type="Boolean" />
           <Property Name="BlockedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SystemSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnableNotifications" Type="Boolean" />
+          <Property Name="DefaultTaskPriority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaskCategories" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TaskViews">
           <Key>
@@ -64,6 +116,34 @@
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AssignedTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AssignTasks">
+          <Key>
+            <PropertyRef Name="AssignTaskID" />
+          </Key>
+          <Property Name="AssignTaskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Deadline" Type="DateTime" Precision="0" />
+          <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AssignedUserID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TaskActivities_">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ActivityDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TaskStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProgressPercentage" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -85,9 +165,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SystemSettings">
+            <EntityTypeMapping TypeName="TaskModel.SystemSettings">
+              <MappingFragment StoreEntitySet="SystemSettings">
+                <ScalarProperty Name="TaskCategories" ColumnName="TaskCategories" />
+                <ScalarProperty Name="DefaultTaskPriority" ColumnName="DefaultTaskPriority" />
+                <ScalarProperty Name="EnableNotifications" ColumnName="EnableNotifications" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TaskViews">
             <EntityTypeMapping TypeName="TaskModel.TaskViews">
               <MappingFragment StoreEntitySet="TaskViews">
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="DueDate" ColumnName="DueDate" />
                 <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -97,7 +189,35 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="AssignTasks">
+            <EntityTypeMapping TypeName="TaskModel.AssignTasks">
+              <MappingFragment StoreEntitySet="AssignTasks">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AssignedUserID" ColumnName="AssignedUserID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AssignTaskID" ColumnName="AssignTaskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskActivities_">
+            <EntityTypeMapping TypeName="TaskModel.TaskActivities_">
+              <MappingFragment StoreEntitySet="TaskActivities ">
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ProgressPercentage" ColumnName="ProgressPercentage" />
+                <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+                <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

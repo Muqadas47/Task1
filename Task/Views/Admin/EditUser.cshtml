@@ -140,14 +140,14 @@
                         </div>
                     </div>
 
-                    @* Password field is commented out *@
-                    @*<div class="form-group row">
-                            @Html.LabelFor(model => model.PasswordHash, "Password", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+                    
+                    <div class="form-group row">
+                            @Html.LabelFor(model => model.PasswordHash, "Reset Password", htmlAttributes: new { @class = "col-md-2 col-form-label" })
                             <div class="col-md-10">
                                 @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control" } )
                                 @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
                             </div>
-                        </div>*@
+                        </div>
 
                     
                         <div class="form-group ">
