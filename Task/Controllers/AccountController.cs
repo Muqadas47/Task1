@@ -91,7 +91,7 @@ namespace Task.Controllers
                     }
                     else if (user.Role == "2")
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("DashBoard", "Manager");
                     }
                     else
                     {

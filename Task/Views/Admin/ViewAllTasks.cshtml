@@ -1,14 +1,90 @@
-﻿@model IEnumerable<TaskView>
+﻿<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-@{
-    ViewBag.Title = "View All Tasks";
-}
+
+<script>
+    $(document).ready(function () {
+        // Handle dropdown item click
+        $('.dropdown-item').click(function (e) {
+            e.preventDefault();
+            var filterType = $(this).data('filter');
+            var filterValue = $(this).data('value');
+
+            if (filterType === 'status') {
+                $('#status').val(filterValue);
+            } else if (filterType === 'assignedTo') {
+                $('#assignedTo').val(filterValue);
+            }
+
+            // Submit the form
+            $('.search-form').submit();
+        });
+
+        // Handle search input (optional)
+        $('#search').on('input', function () {
+            var searchTerm = $(this).val();
+            // Optionally, you can implement search functionality here
+        });
+    });
+</script>
 
 <div class="container mt-4">
     <h2 class="mb-4">View All Tasks</h2>
 
-    <div class="table-responsive">
-        <table class="table table-striped table-hover">
+    <!-- Filter Form -->
+    <!-- Search Bar with Dropdown Filters -->
+    <div class="container mt-4">
+        @using (Html.BeginForm("ViewAllTasks", "Admin", FormMethod.Get, new { @class = "search-form" }))
+        {
+            <div class="input-group">
+                <form method="get" action="@Url.Action("ViewAllTasks", "Admin")">
+
+                    <input type="text" name="searchTerm" class="form-control" placeholder="Search tasks..." value="@Request.QueryString["searchTerm"]" />
+
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="bi bi-search" style="color: #343a40;"></i> 
+                    </button>
+                </form>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                        <h6 class="dropdown-header">Title</h6>
+                        <a class="dropdown-item" href="#" data-filter="title" data-value="">All Titles</a>
+                        <h6 class="dropdown-header">Status</h6>
+                        <!-- Update status filter options -->
+                        <a class="dropdown-item" href="#" data-filter="status" data-value="Pending">pending</a>
+                        <a class="dropdown-item" href="#" data-filter="status" data-value="Completed">Completed</a>
+                        <a class="dropdown-item" href="#" data-filter="status" data-value="In Progress">In Progress</a>
+
+                        <h6 class="dropdown-header">Assigned To</h6>
+
+                        <!-- Update assignedTo sfilter options dynamically -->
+
+
+
+                        <a class="dropdown-item" href="#" data-filter="assignedTo" data-value="">Assignto</a>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden fields for filters -->
+            <input type="hidden" name="status" id="status" />
+            <input type="hidden" name="assignedTo" id="assignedTo" />
+        }
+    </div>
+
+    <!-- Table to display tasks -->
+    <div class="table-responsive mt-4">
+        <table class="table table-striped table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
                     <th>Task ID</th>
@@ -17,6 +93,9 @@
                     <th>Status</th>
                     <th>Assigned To</th>
                     <th>Due Date</th>
+                    <th>Priority</th>    <!-- New column -->
+                    <th>Created At</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +107,14 @@
                         <td>@task.Description</td>
                         <td>@task.Status</td>
                         <td>@task.AssignedTo</td>
-                        <td>@task.DueDate.ToString("d")</td> <!-- Adjust date format as needed -->
+                        <td>@task.DueDate.ToString("d")</td>
+                        <td>@task.Priority</td>
+                        <td>@task.CreatedAt</td>
+                        <!-- Enum value displayed as string -->
+                        <!--  <td>
+
+    </td>  -->
+                        <!-- Adjust date format as needed -->
                     </tr>
                 }
             </tbody>

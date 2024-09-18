@@ -52,8 +52,10 @@ C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\roslyn\VBCSCompiler.exe
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\Antlr3.Runtime.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\BCrypt.Net-Next.dll
+C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\BouncyCastle.Cryptography.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\EntityFramework.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\EntityFramework.SqlServer.dll
+C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\itextsharp.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\Microsoft.Owin.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\Microsoft.Owin.Security.Cookies.dll
@@ -74,8 +76,10 @@ C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\System.Web.WebPages.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\System.Web.WebPages.Razor.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\WebGrease.dll
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\BCrypt.Net-Next.xml
+C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\BouncyCastle.Cryptography.xml
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\EntityFramework.xml
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\EntityFramework.SqlServer.xml
+C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\itextsharp.xml
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\Microsoft.Owin.xml
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\Microsoft.Owin.Security.xml
 C:\Users\Dell 5565 7th Gen\source\repos\Task\Task\bin\Microsoft.Owin.Security.Cookies.xml

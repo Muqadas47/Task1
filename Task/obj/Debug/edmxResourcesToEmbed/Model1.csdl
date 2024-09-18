@@ -2,20 +2,32 @@
 <Schema Namespace="TaskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="TaskEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="TaskModel.Users" />
+    <EntitySet Name="SystemSettings" EntityType="TaskModel.SystemSettings" />
     <EntitySet Name="TaskViews" EntityType="TaskModel.TaskViews" />
+    <EntitySet Name="AssignTasks" EntityType="TaskModel.AssignTasks" />
+    <EntitySet Name="TaskActivities_" EntityType="TaskModel.TaskActivities_" />
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PasswordHash" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="Role" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SignupDate" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
     <Property Name="IsBlocked" Type="Boolean" />
     <Property Name="BlockedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SystemSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnableNotifications" Type="Boolean" />
+    <Property Name="DefaultTaskPriority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaskCategories" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="TaskViews">
     <Key>
@@ -27,5 +39,33 @@
     <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="AssignedTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="Priority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AssignTasks">
+    <Key>
+      <PropertyRef Name="AssignTaskID" />
+    </Key>
+    <Property Name="AssignTaskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Deadline" Type="DateTime" Precision="0" />
+    <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AssignedUserID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TaskActivities_">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+    </Key>
+    <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ActivityDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TaskStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProgressPercentage" Type="Int32" />
+    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>
