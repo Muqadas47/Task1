@@ -39,23 +39,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AssignTasks">
-      <EntityTypeMapping TypeName="TaskModel.AssignTasks">
-        <MappingFragment StoreEntitySet="AssignTasks">
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="AssignedUserID" ColumnName="AssignedUserID" />
-          <ScalarProperty Name="Category" ColumnName="Category" />
-          <ScalarProperty Name="Priority" ColumnName="Priority" />
-          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="AssignTaskID" ColumnName="AssignTaskID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TaskActivities_">
-      <EntityTypeMapping TypeName="TaskModel.TaskActivities_">
-        <MappingFragment StoreEntitySet="TaskActivities ">
+    <EntitySetMapping Name="TaskActivities">
+      <EntityTypeMapping TypeName="TaskModel.TaskActivities">
+        <MappingFragment StoreEntitySet="TaskActivities">
           <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
           <ScalarProperty Name="Comments" ColumnName="Comments" />
           <ScalarProperty Name="ProgressPercentage" ColumnName="ProgressPercentage" />
@@ -64,6 +50,21 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="TaskId" ColumnName="TaskId" />
           <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssignTasks">
+      <EntityTypeMapping TypeName="TaskModel.AssignTasks">
+        <MappingFragment StoreEntitySet="AssignTasks">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AssignedUserID" ColumnName="AssignedUserID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AssignTaskID" ColumnName="AssignTaskID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -30,7 +31,7 @@ public class TaskManagementDBContext : DbContext
     }
 }
 
-public class User
+public class User 
 {
     public int UserID { get; set; }
     public string Username { get; set; }
@@ -68,6 +69,9 @@ public partial class AssignTasks
     public string Category { get; set; }
     public Nullable<int> AssignedUserID { get; set; }
     public string CreatedBy { get; set; }
+
+    public string Status { get; set; }
+    
 }
 
 
@@ -86,4 +90,12 @@ public partial class AssignTasks
         public Nullable<System.DateTime> LastUpdated { get; set; }
         
     }
+public class TaskCommentsViewModel
+{
+    public int TaskID { get; set; }
+    public string Title { get; set; }
+    public string Status { get; set; }
+    public string Username { get; set; }
+    public string Comments { get; set; }
+}
 

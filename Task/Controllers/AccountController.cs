@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Task.Models;
 using BCrypt.Net;
 using System;
+using System.Web.Security;
 
 namespace Task.Controllers
 {
@@ -84,14 +85,22 @@ namespace Task.Controllers
 
                 if (BCrypt.Net.BCrypt.Verify(model.PasswordHash, user.PasswordHash))
                 {
+                    Session["Username"] = user.Username;
 
+                    
+                    Session["UserID"] = user.UserID;
+                    FormsAuthentication.SetAuthCookie(user.Username, false);
                     if (user.Role == "1")
                     {
                         return RedirectToAction("Index", "Admin");
                     }
-                    else if (user.Role == "2")
+                    else if (user.Role == "Manager")
                     {
                         return RedirectToAction("DashBoard", "Manager");
+                    }
+                    else if (user.Role == "User")
+                    {
+                        return RedirectToAction("Index", "User");
                     }
                     else
                     {

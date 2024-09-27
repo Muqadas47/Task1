@@ -4,8 +4,8 @@
     <EntitySet Name="Users" EntityType="TaskModel.Users" />
     <EntitySet Name="SystemSettings" EntityType="TaskModel.SystemSettings" />
     <EntitySet Name="TaskViews" EntityType="TaskModel.TaskViews" />
+    <EntitySet Name="TaskActivities" EntityType="TaskModel.TaskActivities" />
     <EntitySet Name="AssignTasks" EntityType="TaskModel.AssignTasks" />
-    <EntitySet Name="TaskActivities_" EntityType="TaskModel.TaskActivities_" />
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -42,6 +42,19 @@
     <Property Name="Priority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedAt" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="TaskActivities">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+    </Key>
+    <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ActivityDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TaskStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProgressPercentage" Type="Int32" />
+    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+  </EntityType>
   <EntityType Name="AssignTasks">
     <Key>
       <PropertyRef Name="AssignTaskID" />
@@ -54,18 +67,6 @@
     <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="AssignedUserID" Type="Int32" />
     <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="TaskActivities_">
-    <Key>
-      <PropertyRef Name="ActivityId" />
-    </Key>
-    <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TaskId" Type="Int32" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="ActivityDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="TaskStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ProgressPercentage" Type="Int32" />
-    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

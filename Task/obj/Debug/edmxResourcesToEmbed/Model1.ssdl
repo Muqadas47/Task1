@@ -12,6 +12,7 @@
     <Property Name="Category" Type="nvarchar" MaxLength="100" />
     <Property Name="AssignedUserID" Type="int" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="SystemSettings">
     <Key>
@@ -22,7 +23,7 @@
     <Property Name="DefaultTaskPriority" Type="nvarchar(max)" />
     <Property Name="TaskCategories" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="TaskActivities ">
+  <EntityType Name="TaskActivities">
     <Key>
       <PropertyRef Name="ActivityId" />
     </Key>
@@ -64,7 +65,7 @@
   <EntityContainer Name="TaskModelStoreContainer">
     <EntitySet Name="AssignTasks" EntityType="Self.AssignTasks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SystemSettings" EntityType="Self.SystemSettings" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TaskActivities " EntityType="Self.TaskActivities " Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskActivities" EntityType="Self.TaskActivities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaskViews" EntityType="Self.TaskViews" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

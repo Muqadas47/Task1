@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="TaskModel.Users" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="TaskModel.SystemSettings" Width="1.5" PointX="6.25" PointY="3.75" />
         <EntityTypeShape EntityType="TaskModel.TaskViews" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="TaskModel.AssignTasks" Width="1.5" PointX="3.375" PointY="4.75" />
-        <EntityTypeShape EntityType="TaskModel.TaskActivities_" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TaskModel.TaskActivities" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TaskModel.AssignTasks" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

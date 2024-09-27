@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|c:\\users\\dell 5565 7th gen\\source\\repos\\task\\task\\views\\manager\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|solutionrelative:task\\views\\manager\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\task\\views\\user\\taskdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|solutionrelative:task\\views\\user\\taskdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\task\\models\\taskmanagementdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|solutionrelative:task\\models\\taskmanagementdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|c:\\users\\dell 5565 7th gen\\source\\repos\\task\\task\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|solutionrelative:task\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|c:\\users\\dell 5565 7th gen\\source\\repos\\task\\task\\views\\user\\viewfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D73DAD2A-D7E3-41AA-9E3B-AAD24568F1D7}|Task\\Task.csproj|solutionrelative:task\\views\\user\\viewfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,8 +21,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "DockedHeight": 276,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -29,35 +33,52 @@
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\Manager\\Create.cshtml",
-              "RelativeDocumentMoniker": "Task\\Views\\Manager\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\Manager\\Create.cshtml",
-              "RelativeToolTip": "Task\\Views\\Manager\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAB4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-18T09:51:17.577Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TaskManagementDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Models\\TaskManagementDBContext.cs",
-              "RelativeDocumentMoniker": "Task\\Models\\TaskManagementDBContext.cs",
-              "ToolTip": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Models\\TaskManagementDBContext.cs",
-              "RelativeToolTip": "Task\\Models\\TaskManagementDBContext.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAUwFYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T09:48:40.012Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "Task\\Views\\User\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "Task\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-27T09:22:12.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ViewFeedback.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\User\\ViewFeedback.cshtml",
+              "RelativeDocumentMoniker": "Task\\Views\\User\\ViewFeedback.cshtml",
+              "ToolTip": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\User\\ViewFeedback.cshtml",
+              "RelativeToolTip": "Task\\Views\\User\\ViewFeedback.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEwAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-27T07:20:53.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TaskDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\User\\TaskDetails.cshtml",
+              "RelativeDocumentMoniker": "Task\\Views\\User\\TaskDetails.cshtml",
+              "ToolTip": "C:\\Users\\Dell 5565 7th Gen\\source\\repos\\Task\\Task\\Views\\User\\TaskDetails.cshtml",
+              "RelativeToolTip": "Task\\Views\\User\\TaskDetails.cshtml",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAAAEYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-26T13:25:25.861Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedHeight": 97,
+          "DockedHeight": 21,
           "SelectedChildIndex": -1,
           "Children": [
             {
