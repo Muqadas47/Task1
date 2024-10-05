@@ -28,7 +28,7 @@ namespace Task
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<SystemSettings> SystemSettings { get; set; }
         public virtual DbSet<TaskViews> TaskViews { get; set; }
+        public virtual DbSet<TaskActivities> TaskActivities { get; set; }
         public virtual DbSet<AssignTasks> AssignTasks { get; set; }
-        public virtual DbSet<TaskActivities_> TaskActivities_ { get; set; }
     }
 }
